@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Proxy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: 1px solid #ccc;
+        }
+
+        input {
+            width: 300px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GitHub Pages Proxy</h1>
+    <p>Enter the URL you want to visit:</p>
+
+    <input type="text" id="urlInput" placeholder="Enter a URL">
+    <button onclick="loadProxy()">Go</button>
+
+    <iframe id="proxyFrame" sandbox="allow-same-origin allow-scripts"></iframe>
+
+    <script>
+        function loadProxy() {
+            const url = document.getElementById('urlInput').value;
+
+            // Basic URL validation
+            if (!url || !url.startsWith('http')) {
+                alert('Please enter a valid URL starting with http or https');
+                return;
+            }
+
+            // Load the URL in an iframe
+            document.getElementById('proxyFrame').src = url;
+        }
+    </script>
+
+</body>
+</html>
